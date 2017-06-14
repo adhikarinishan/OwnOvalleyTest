@@ -1,0 +1,71 @@
+[
+  {
+    "cust_id": "1",
+    "cust_name": "Nishan",
+    "Contact": "8400012345",
+    "zipcode":"400064"
+  },
+  {
+    "cust_id": "2",
+    "cust_name": "Kajal",
+    "Contact": "9497559312",
+    "zipcode":"400078"
+  },
+
+  {
+    "cust_id": "3",
+    "cust_name": "Sapana",
+    "Contact": "8502456950",
+    "zipcode":"400080"
+  },
+  {
+    "cust_id": "4",
+    "cust_name": "Nisha",
+    "Contact": "7003147721",
+    "zipcode":"400082"
+  },
+  {
+    "cust_id": "5",
+    "cust_name": "Nishant",
+    "Contact": "7003278722",
+    "zipcode":"400064"
+  },
+  {
+    "cust_id": "6",
+    "cust_name": "Manoj",
+    "Contact": "8890120045",
+    "zipcode":"400078"
+  },
+
+
+  {
+    "cust_id": "7",
+    "cust_name": "Sachin",
+    "Contact": "9670895001",
+    "zipcode":"400064"
+  },
+  {
+    "cust_id": "8",
+    "cust_name": "Sneha",
+    "Contact": "9748748900",
+    "zipcode":"400097"
+  },
+  {
+    "cust_id": "9",
+    "cust_name": "Snehal",
+    "Contact": "8001466871",
+    "zipcode":"400082"
+  },
+  {
+    "cust_id": "10",
+    "cust_name": "Sam",
+    "Contact": "9001602509",
+    "zipcode":"400097"
+  },
+  {
+    "cust_id": "11",
+    "cust_name": "Sam",
+    "Contact": "8812192001",
+    "zipcode":"400080"
+  }
+]

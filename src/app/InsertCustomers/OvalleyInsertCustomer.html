@@ -1,0 +1,744 @@
+<div layout="column" flex layout-fill ng-controller="OvalleyInsertCustomerController as ctrl" layout="column" ng-cloak=""
+  class="autocompletedemoCustomTemplate">
+
+  <!--<md-toolbar><span flex="flex">
+    <div class="md-toolbar-tools">
+        
+  </div>
+	
+</md-toolbar>-->
+
+  <md-content>
+    <div layout="row">
+
+      <div ng-mouseenter="hoverIn()" ng-mouseleave="hoverOut()">
+        <md-sidenav style="position: fixed;" layout="column" ng-class="myClass " md-component-id="small" md-is-locked-open=true>
+          <md-toolbar md-whiteframe="3">
+            <div class="md-toolbar-tools">
+              <p class="sandwich panel" ng-class="{'open' : isOpen}">
+                <div></div>
+              </p>
+              <img src="https://www.atlanticaviation.com/docs/default-source/logos-library/atlantic-logo-4c-a2.png?sfvrsn=12" height="30"
+                width="40" /> &nbsp;
+
+            </div>
+          </md-toolbar>
+        </md-sidenav>
+        <md-sidenav flex layout="column" class="rightnav md-whiteframe-z2" ng-show="hoverEdit" md-component-id="big" style="position: fixed;"
+          ng-hide=true md-is-locked-open=true>
+          <md-toolbar md-whiteframe="3">
+            <div class="md-toolbar-tools">
+
+              <img src="https://www.atlanticaviation.com/docs/default-source/logos-library/atlantic-logo-4c-a2.png?sfvrsn=12" height="30"
+                width="50" /> &nbsp;
+
+              <h5 style="color: #fff;">MENU</h5>
+              <md-button ng-click="toggleClass()" class="cmn-toggle-switch cmn-toggle-switch__htra ">
+                Pause
+              </md-button>
+            </div>
+          </md-toolbar>
+
+        </md-sidenav>
+      </div>
+
+    </div>
+  </md-content>
+
+
+
+  <header>
+    <md-toolbar class="md-whiteframe-z2 " style="
+    min-height: 0px;
+    height: 3.2em !important;
+    padding-bottom: 14px;">
+      <div style="text-align: center;">
+        <center>
+          <p align="center" style="
+    padding: 0px 44px 15px 0px;
+    padding-bottom: 0px;
+    position: relative;
+    bottom: 1px;
+"> <img class="ovalleylogo" data-toggle="tooltip" title="O'Valley Logo" style="margin:-19px 64px !important;width:134px !important; cursor:pointer;"
+              ng-src="assets/images/OvalleyImages/CustomerManagementImage/Ovalley-Logo.png"><span style="margin-left:-249px;">O'VALLEY</span>
+
+
+            <md-menu-bar style="margin:0px;margin-top:-8px;margin-left:938px;">
+              <md-menu style="margin-left:10px;">
+                <span ng-click="$mdOpenMenu()">
+                <ng-md-icon icon="person_outline" style="fill:white;margin:10px;padding:1px;margin-top:-14px;margin-left: 154px;" size="30"></ng-md-icon>
+                </span>
+                <md-menu-content>
+                  <md-menu-item>
+                    <md-button>
+                      <ng-md-icon icon="person" style="fill: blue;margin-top: 0px;margin-right: -14px;" size="20"></ng-md-icon>&nbsp;&nbsp;&nbsp; My Profile&nbsp;&nbsp;</md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button ng-click="showTabDialog($event)">
+                      <ng-md-icon icon="edit" style="fill: blue;margin-top: 0px;margin-right: -14px;" size="20"></ng-md-icon>
+                      &nbsp;&nbsp;&nbsp;Change<br> Password &nbsp;&nbsp;</md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      <ng-md-icon icon="logout" style="fill:red;margin-top:1px;margin-right:-17px;margin-left:4px;" size="20"></ng-md-icon>
+                      &nbsp;&nbsp;&nbsp;Logout</md-button>
+                  </md-menu-item>
+                  <!--<md-menu-item>
+                    <md-button ng-click="showTabDialog($event)">Change</md-button>
+                  </md-menu-item>-->
+                </md-menu-content>
+              </md-menu>
+              <md-menu>
+                <ng-md-icon ng-click="jumpTomainPage()" icon="home" style="fill:white;;margin:24px;padding:1px;margin-top:-50px;margin-left:271px;"
+                  size="30">
+                  <md-tooltip>Home</md-tooltip>
+                </ng-md-icon>
+              </md-menu>
+              <md-menu>
+                <ng-md-icon icon=" settings" style="fill:white;margin:10px;padding:1px;margin-top:-110px;margin-left: 339px;" size="26"></ng-md-icon>
+
+              </md-menu>
+            </md-menu-bar>
+
+          </p>
+
+        </center><br>
+      </div>
+    </md-toolbar>
+  </header>
+  <main flex>
+    <center>
+      <h1>Add Customers</h1>
+    </center>
+    <div align="right">
+      <br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Last Updated :&nbsp;&nbsp;&nbsp;&nbsp;(John) &nbsp;&nbsp;(02/06/2017)&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div ng-cloak="" class="tabsdemoDynamicHeight" style="margin-left:45px;padding:10px;">
+      <md-content class="hidescroll">
+        <md-tabs md-dynamic-height="" md-border-bottom="">
+
+          <md-tab label="Customer Information">
+            <div layout="row" style="margin:1px 2px;margin-top:16px;margin-left: 2px;">
+              <md-input-container align="right" class="md-icon-float md-block" style="margin:12px 0;margin-left:16px;">
+                <label style="color:black;margin-left:3px;">Linked ID</label>
+                <input ng-model="customerData.linkedId" type="text">
+              </md-input-container>
+              <md-button class="md-raised primary">Search</md-button>
+            </div>
+            <div ng-cloak="" class="tabsdemoDynamicHeight" style="margin-top:-10px;">
+              <md-content scroll="false">
+                <md-tabs>
+
+                  <md-tab label="Contact Details">
+
+                    <md-content scroll="false" style="margin-left:90px;padding:10px;">
+
+                      <div>
+
+                        <div layout="row" align="left">
+
+                        </div>
+
+                        <md-whiteframe class="md-whiteframe-23dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="70" layout layout-align="center center">
+                          <div layout="column">
+                            <div layout="row">
+                              <h1 style="margin-left:10px;">Contact 1</h1>
+                              <ng-md-icon class="AddIcon" ng-click="addNewDetails1()" icon="add_circle_outline" style="fill:green;margin:22px;margin-left: 626px;margin-top:9px;"
+                                size="30">
+                                <md-tooltip>Add Another Contact</md-tooltip>
+                              </ng-md-icon>
+                            </div>
+                            <md-divider></md-divider>
+                            <div layout="row" style="margin-left:24px;padding:10px;">
+                              <md-input-container style="width:22%;">
+                                <md-select style="margin-left:12px;" ng-model="selectTitle" md-selected-text="getSelectedTitle()">
+                                  <md-optgroup label="Title">
+                                    <md-option ng-value="Title" ng-repeat="dropdowntitle in dropdownTitle">{{dropdowntitle}}</md-option>
+                                  </md-optgroup>
+                                </md-select>
+                              </md-input-container>
+
+                              <md-input-container class="md-icon-float md-block" style="width:20%;margin-left:39px;">
+                                <!-- Use floating label instead of placeholder -->
+                                <label style="margin-left:3px;">First Name</label>
+                                <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                <input required maxlength="15" "customerData.fName" type="text">
+                              </md-input-container>
+
+                              <md-input-container class="md-icon-float md-block" style="width:20%;margin-left:39px;">
+                                <!-- Use floating label instead of placeholder -->
+                                <label>Last Name</label>
+                                <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                <input required maxlength="15" ng-model="customerData.lName" type="text">
+                              </md-input-container><br><br><br>
+                            </div>
+
+                            <div layout="row" style="margin-left:28px;padding:1px;width:79%;">
+                              <md-input-container style="margin-left:0px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-required="true" ng-minlength="10" ng-maxlength="10" ng-model="customerData.P1contact2" type="text" placeholder="Mobile Number 1*">
+                              </md-input-container>
+
+                              <md-input-container style="margin-left:55px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-minlength="10" ng-maxlength="10" ng-model="customerData.P1contact2" type="text" placeholder="Mobile Number 2">
+                              </md-input-container>
+
+                              <md-input-container style="margin-left:55px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:13px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-minlength="10" ng-maxlength="10" ng-model="customerData.P1contact3" type="text" placeholder="Mobile Number 3">
+                              </md-input-container>
+                            </div>
+                            <div layout="row" style="margin-left:31px;padding:1px;width:79%">
+                              <md-input-container style="margin-left:0px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;width: 60px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <!--<ng-md-icon icon="mail" style="fill:green" size="30"></ng-md-icon>-->
+                              <md-input-container class="md-block" style="margin-left:39px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 1*" ng-required="true" minlength="10" maxlength="100"
+                                  ng-pattern="/^.+@.+\..+$/" />
+                              </md-input-container>
+                              <md-input-container style="margin-left:54px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;" size="24"></ng-md-icon>
+                              </md-input-container>
+
+                              <md-input-container class="md-block" style="margin-left:37px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 2" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                                />
+                              </md-input-container>
+                              <md-input-container style="margin-left:54px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:14px;margin-top:12px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:39px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 3" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                                />
+                              </md-input-container>
+                            </div>
+                          </div>
+                        </md-whiteframe>
+                      </div>
+
+                      <div ng-show="showDetails1">
+                        <div layout="row" align="left">
+                          <br><br>
+                        </div>
+
+                        <md-whiteframe class="md-whiteframe-23dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="70" layout layout-align="center center">
+                          <div layout="column">
+
+                            <div layout="row">
+                              <h1 style="margin-left:10px;">Contact 2</h1>
+
+
+                              <ng-md-icon ng-click="addNewDetails2()" icon="add_circle_outline" style="fill:green;margin:22px;margin-left: 622px;margin-top:9px;"
+                                size="30">
+                                <md-tooltip>Add Another Contact</md-tooltip>
+                              </ng-md-icon>
+
+                            </div>
+
+                            <md-divider></md-divider>
+                            <div layout="row" style="margin-left:24px;padding:10px;">
+                              <md-input-container style="width:22%;">
+                                <md-select style="margin-left:12px;" ng-model="selectTitle" md-selected-text="getSelectedTitle()">
+                                  <md-optgroup label="Title">
+                                    <md-option ng-value="Title" ng-repeat="dropdowntitle in dropdownTitle">{{dropdowntitle}}</md-option>
+                                  </md-optgroup>
+                                </md-select>
+                              </md-input-container>
+
+                              <md-input-container class="md-icon-float md-block" style="width:20%;margin-left:39px;">
+                                <!-- Use floating label instead of placeholder -->
+                                <label style="margin-left:3px;">First Name</label>
+                                <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                <input required maxlength="15" ng-model="customerData.fName" type="text">
+                              </md-input-container>
+
+                              <md-input-container class="md-icon-float md-block" style="width:20%;margin-left:39px;">
+                                <!-- Use floating label instead of placeholder -->
+                                <label>Last Name</label>
+                                <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                <input required maxlength="15" ng-model="customerData.lName" type="text">
+                              </md-input-container><br><br><br>
+                            </div>
+
+                            <div layout="row" style="margin-left:26px;padding:1px;width:79%;">
+                              <md-input-container style="margin-left:0px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-required="true" ng-minlength="10" ng-maxlength="10" ng-model="customerData.P2contact1" type="text" placeholder="Mobile Number 1*">
+                              </md-input-container>
+
+                              <md-input-container style="margin-left:55px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-minlength="10" ng-maxlength="10" ng-model="customerData.P2contact2" type="text" placeholder="Mobile Number 2">
+                              </md-input-container>
+
+                              <md-input-container style="margin-left:55px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-minlength="10" ng-maxlength="10" ng-model="customerData.P2contact3" type="text" placeholder="Mobile Number 3">
+                              </md-input-container>
+                            </div>
+                            <div layout="row" style="margin-left:31px;padding:1px;width:79%">
+                              <md-input-container style="margin-left:0px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;width: 60px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <!--<ng-md-icon icon="mail" style="fill:green" size="30"></ng-md-icon>-->
+                              <md-input-container class="md-block" style="margin-left:39px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 1*" ng-required="true" minlength="10" maxlength="100"
+                                  ng-pattern="/^.+@.+\..+$/" />
+                              </md-input-container>
+                              <md-input-container style="margin-left:54px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;" size="24"></ng-md-icon>
+                              </md-input-container>
+
+                              <md-input-container class="md-block" style="margin-left:37px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 2" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                                />
+                              </md-input-container>
+                              <md-input-container style="margin-left:54px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:39px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 3" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                                />
+                              </md-input-container>
+                            </div>
+                          </div>
+                        </md-whiteframe>
+
+                      </div><br><br><br>
+
+                      <div ng-show="showDetails2">
+                        <div align="left">
+
+                        </div>
+                        <md-whiteframe class="md-whiteframe-23dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="70" layout layout-align="center center">
+                          <div layout="column">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h1 style="margin-left:10px;">Contact 3</h1>
+                            <md-divider></md-divider>
+                            <div layout="row" style="margin-left:24px;padding:10px;">
+                              <md-input-container style="width:22%;">
+                                <md-select style="margin-left:12px;" ng-model="selectTitle" md-selected-text="getSelectedTitle()">
+                                  <md-optgroup label="Title">
+                                    <md-option ng-value="Title" ng-repeat="dropdowntitle in dropdownTitle">{{dropdowntitle}}</md-option>
+                                  </md-optgroup>
+                                </md-select>
+                              </md-input-container>
+
+                              <md-input-container class="md-icon-float md-block" style="width:20%;margin-left:39px;">
+
+                                <label style="margin-left:3px;">First Name</label>
+                                <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                <input required maxlength="15" ng-model="customerData.fName" type="text">
+                              </md-input-container>
+
+                              <md-input-container class="md-icon-float md-block" style="width:20%;margin-left:39px;">
+
+                                <label>Last Name</label>
+                                <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                                <input required maxlength="15" ng-model="customerData.lName" type="text">
+                              </md-input-container><br><br><br>
+                            </div>
+
+                            <div layout="row" style="margin-left:26px;padding:1px;width:79%;">
+                              <md-input-container style="margin-left:0px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:13px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-required="true" ng-minlength="10" ng-maxlength="10" ng-model="customerData.P3contact1" type="text" placeholder="Mobile Number 1*">
+                              </md-input-container>
+
+                              <md-input-container style="margin-left:55px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-minlength="10" ng-maxlength="10" ng-model="customerData.P3contact2" type="text" placeholder="Mobile Number 2">
+                              </md-input-container>
+
+                              <md-input-container style="margin-left:55px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="phone" style="fill:black;margin-left:14px;margin-top:11px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                                <input ng-minlength="10" ng-maxlength="10" ng-model="customerData.P3contact3" type="text" placeholder="Mobile Number 3">
+                              </md-input-container>
+                            </div>
+                            <div layout="row" style="margin-left:31px;padding:1px;width:79%">
+                              <md-input-container style="margin-left:0px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;width: 60px;" size="24"></ng-md-icon>
+                              </md-input-container>
+
+                              <md-input-container class="md-block" style="margin-left:39px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 1*" ng-required="true" minlength="10" maxlength="100"
+                                  ng-pattern="/^.+@.+\..+$/" />
+                              </md-input-container>
+                              <md-input-container style="margin-left:54px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;" size="24"></ng-md-icon>
+                              </md-input-container>
+
+                              <md-input-container class="md-block" style="margin-left:37px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 2" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                                />
+                              </md-input-container>
+                              <md-input-container style="margin-left:54px;padding:1px;top:0px;margin-top: 11px;">
+                                <ng-md-icon icon="mail" style="fill:red;margin-left:13px;margin-top:12px;" size="24"></ng-md-icon>
+                              </md-input-container>
+                              <md-input-container class="md-block" style="margin-left:39px;padding:1px;">
+                                <input ng-model="customerData.email" type="email" placeholder="Email 3" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                                />
+                              </md-input-container>
+                            </div>
+                          </div>
+                        </md-whiteframe>
+
+                      </div>
+                    </md-content>
+                  </md-tab>
+
+                  <md-tab label="Shop/Office Address">
+                    <md-content scroll="true" style="margin-left:70px;padding:40px;">
+                      <md-whiteframe class="md-whiteframe-23dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="90" layout layout-align="center center">
+                        <div layout="column" style="margin-left:-51px;">
+                          <div layout="row">
+                            <h1 style="margin-left:-22px;">Shop Address</h1>
+                          </div>
+                          <md-divider style="margin-left:-34px;margin-right: -86px;"></md-divider>
+                          <div layout="row" style="margin-top:40px;margin-left:5px;">
+                            <md-input-container class="md-icon-float md-block" style="margin-right:-12px;margin-left:-3px;">
+
+                              <label>Shop Name</label>
+                              <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                              <input required ng-model="customerData.shopName" type="text">
+                            </md-input-container>
+
+                            <md-input-container style="margin-left:25px;margin-right:-14px;">
+
+                              <label style="margin-left:26px;">Shop/Flat/Gala no.</label>
+
+                              <input style="margin-left:25px;margin-right:-39px;" maxlength="5" minlength="0" ng-model="customerData.shopNo" type="text">
+
+                            </md-input-container>
+
+                            <md-input-container class="md-icon-float md-block" style="margin-left:32px;">
+
+                              <label>Building Name</label>
+                              <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="buildingName"></md-icon>
+                              <input ng-model="customerData.buildingName" type="text">
+                            </md-input-container>
+
+                            <form ng-submit="$event.preventDefault()" style="margin-left:37px;margin-top:9px;">
+
+                              <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItemStreet" md-search-text-change="searchTextChangeStreet(searchTextStreet)"
+                                md-search-text="searchTextStreet" md-selected-item-change="selectedItemChangeStreet(itemStreet)"
+                                md-items="itemStreet in querySearchStreet(searchTextStreet)" md-item-text="itemStreet.Street"
+                                md-min-length="0" placeholder="Select A Road/Street" md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">
+                                         {{itemStreet.Street}} </span>
+                                </md-item-template>
+                              </md-autocomplete>
+                            </form>
+                          </div>
+
+                          <div layout="row" style="margin-top:31px;margin-left:27px;">
+                            <form ng-submit="$event.preventDefault()" style="margin-left:10px">
+                              <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItemArea" md-search-text-change="searchTextChangeArea(searchTextArea)"
+                                md-search-text="searchTextArea" md-selected-item-change="selectedItemChangeArea(itemArea)"
+                                md-items="itemArea in querySearchArea(searchTextArea)" md-item-text="itemArea.Area" md-min-length="0"
+                                placeholder="Select An Area" md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">                                        
+                                         {{itemArea.Area}} </span>
+                                </md-item-template>
+                              </md-autocomplete>
+                            </form>
+
+
+                            <form ng-submit="$event.preventDefault()" style="margin-left:37px;">
+                              <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItemRegion" md-search-text-change="searchTextChangeRegion(searchTextRegion)"
+                                md-search-text="searchTextRegion" md-selected-item-change="selectedItemChangeRegion(itemRegion)"
+                                md-items="itemRegion in querySearchRegion(searchTextRegion)" md-item-text="itemRegion.Region"
+                                md-min-length="0" placeholder="Select An Region" md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">                                       
+                                        {{itemRegion.Region}} </span>
+                                </md-item-template>
+                              </md-autocomplete>
+                            </form>
+
+                            <form ng-submit="$event.preventDefault()" style="margin-left:33px">
+                              <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItemZone" md-search-text-change="searchTextChangeZone(searchTextZone)"
+                                md-search-text="searchTextZone" md-selected-item-change="selectedItemChangeZone(itemZone)"
+                                md-items="itemZone in querySearchZone(searchTextZone)" md-item-text="itemZone.Zone" md-min-length="0"
+                                placeholder="Select An Zone" md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">                                        
+                                         {{itemZone.Zone}} </span>
+                                </md-item-template>
+                              </md-autocomplete>
+                            </form>
+
+
+                            <md-input-container class="md-icon-float md-block" style="margin-top:9px;margin-left:-3px;">
+                              <label>Pincode</label>
+                              <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="area"></md-icon>
+                              <input ng-required="true" maxlength="6" minlength="6" ng-model="pincode" type="number">
+                            </md-input-container>
+                          </div>
+
+                          <div layout="row" style="margin-top:31px;margin-left:28px;">
+
+                            <form ng-submit="$event.preventDefault()" style="margin-left:10px">
+                              <md-autocomplete  ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItem" md-search-text-change="searchTextChangeCity(searchTextCity)"
+                                md-search-text="searchTextCity" md-selected-item-change="selectedItemChangeCity(itemCity)"
+                                md-items="itemCity in querySearchCity(searchTextCity)" md-item-text="itemCity.city" md-min-length="0"
+                                placeholder="Select A City" md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">                                        
+                                         {{itemCity.city}} </span>
+                                         <!--<span>{{selectedItem}}</span>-->
+                                </md-item-template>
+                              </md-autocomplete>
+                              {{cityshow}} 
+                            </form>
+
+
+                            <form ng-submit="$event.preventDefault()" style="margin-left:37px">
+
+                              <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItemState" md-search-text-change="searchTextChangeState(searchTextState)"
+                                md-search-text="searchTextState" md-selected-item-change="selectedItemChangeState(itemState)"
+                                md-items="itemState in querySearchState(searchTextState)" md-item-text="itemState.state" md-min-length="0"
+                                placeholder="Select A State" md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">
+                                        
+                                        {{itemState.state}} </span>
+
+                                </md-item-template>
+                              </md-autocomplete>
+                            </form>
+                            <md-input-container class="md-block" style="margin-top:9px;margin-left:31px;">
+                              <input ng-model="customerData.email" type="email" placeholder="Latitude" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                              />
+                            </md-input-container>
+                            <md-input-container class="md-block" style="margin-top: 9px;margin-left: 34px;">
+                              <input ng-model="customerData.email" type="email" placeholder="Longitude" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/"
+                              />
+                            </md-input-container>
+
+                            <md-input-container style="margin-left:-21px;padding:1px;top:0px;margin-top:-9px;">
+                              <ng-md-icon icon="room" style="fill:blue;margin-left:11px;margin-top: 21px;" size="24">
+                                <md-tooltip>Get Location</md-tooltip>
+                              </ng-md-icon>
+                            </md-input-container>
+
+                          </div>
+
+
+                          <div layout="row" style="margin-left:33px;padding:1px;margin-top:1px;margin-bottom: 23px;">
+                            <md-input-container style="margin-left:0px;padding:1px;top:0px;margin-top: 22px;">
+                              <ng-md-icon icon="phone" style="fill:black;margin-left: 1px;margin-top: 0px;" size="24"></ng-md-icon>
+                            </md-input-container>
+                            <md-input-container class="md-block" style="margin-left:24px;padding:1px;margin-right: -30px;">
+                              <input style="margin-right:-19px;" ng-required="true" ng-minlength="10" ng-maxlength="10" ng-model="customerData.Acontact1"
+                                type="text" placeholder="Mobile Number 1*">
+                            </md-input-container>
+
+                            <md-input-container style="margin-left:44px;padding:1px;top:0px;margin-top: 24px;">
+                              <ng-md-icon style="margin-left:13px;margin-top:-2px;" icon="phone" style="fill:black" size="24"></ng-md-icon>
+                            </md-input-container>
+                            <md-input-container class="md-block" style="margin-left:38px;padding:1px;">
+                              <input style="margin-right:-15px;margin-left:-3px " ng-minlength="10" ng-maxlength="10" ng-model="customerData.Acontact2"
+                                type="text" placeholder="Mobile Number 2">
+                            </md-input-container>
+
+                            <md-input-container style="margin-left:30px;padding:1px;top:0px;margin-top: 25px;">
+                              <ng-md-icon icon="mail" style="fill:red;margin-left:-3px;margin-right:-15px;" size="24"></ng-md-icon>
+                            </md-input-container>
+
+                            <md-input-container class="md-block" style="margin-left:23px;padding:1px;">
+                              <input style="margin-right: -15px;margin-left: -3px;" ng-model="customerData.email" type="email" placeholder="Email 1 (required)*"
+                                ng-required="true" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+                            </md-input-container>
+                            <md-input-container style="margin-left:23px;padding:1px;top:0px;margin-top:24px;">
+                              <ng-md-icon icon="mail" style="fill:red;margin-left: 5px;" size="24"></ng-md-icon>
+                            </md-input-container>
+
+                            <md-input-container class="md-block" style="margin-left:21px;padding:1px;margin-right: -40px;">
+                              <label style="margin-left:12px;">Email 2</label>
+                              <input style="margin-right:-24px;margin-left:6px;" ng-model="customerData.email" type="email" minlength="10" maxlength="100"
+                                ng-pattern="/^.+@.+\..+$/" />
+                            </md-input-container>
+                          </div>
+                        </div>
+                      </md-whiteframe>
+                    </md-content>
+                  </md-tab>
+
+                  <md-tab label="Shop Details">
+
+                    <md-content scroll="false" style="margin-left:90px;margin-top:18px;padding:40px;">
+                      <md-whiteframe class="md-whiteframe-23dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="70" layout layout-align="center center">
+                        <div layout="column" style="margin-left:-96px;">
+                          <h1 style="margin-left:-26px;">Shop Details</h1>
+                          <md-divider style="margin-left:-40px;margin-right: -137px;"></md-divider>
+                          <div layout="row" style="margin-left: 21px;margin-top: 20px;">
+                            <md-input-container style="margin-left:10px;padding:4px;">
+                              <md-select ng-model="selectAC" md-selected-text="getSelectedAC()">
+                                <md-optgroup label="AC">
+                                  <md-option ng-value="AC" ng-repeat="dropdownAC in dropdownAC">{{dropdownAC}}</md-option>
+                                </md-optgroup>
+                              </md-select>
+                            </md-input-container>
+
+
+                            <md-input-container class="md-block" style="margin-left:66px;padding:4px;">
+                              <input style="margin-right: -52px;" ng-model="customerData.email" type="email" placeholder="Approx Area(Sq ft)" />
+                            </md-input-container>
+
+                            <form ng-submit="$event.preventDefault()" style="margin-top: 11px;margin-right: -30px;margin-left: 56px;">
+
+                              <md-autocomplete ng-disabled="isDisabled" md-no-cache="noCache" md-selected-item="selectedItema" md-search-text-change="searchTextChangeShopType(searchTextShopType)"
+                                md-search-text="searchTextShopType" md-selected-item-change="selectedItemChangeShopType(item)"
+                                md-items="item in querySearchShopType(searchTextShopType)" md-item-text="item.shopType" md-min-length="0"
+                                placeholder="Shop Type" md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                  <span class="item-title">
+                                        
+                                         {{item.shopType}} </span>
+
+                                </md-item-template>
+                              </md-autocomplete>
+                            </form>
+                          </div>
+
+                          <div layout="column" style="margin-left: 58px;">
+                            <div layout=- "row" style="margin-left: -16px;margin-bottom: 6px;">
+                              <p style="margin-top:26px;margin-right: 132px;margin-left:-6px;">Opening Time:</p>
+                              <p style="margin-top: 24px;margin-left: -31px;">Closing Time:</p>
+                            </div>
+                            <div layout="row" style="margin-left: -12px;">
+                              <mdp-time-picker style="margin-left:-20px;margin-top:-36px;" ng-model="OpeningTime"></mdp-time-picker>
+
+                              <mdp-time-picker style="margin-top: -37px;margin-left: 50px;" ng-model="ClosingTime"></mdp-time-picker>
+                            </div>
+                            <div layout="row">
+                              <md-input-container style="margin-left: 355px;margin-top: -96px;padding:20px;">
+                                <label>Opening Days</label>
+                                <md-select ng-model="selectedDays" style="margin-left:10px;" multiple>
+                                  <md-optgroup label="Days">
+                                    <md-option ng-repeat="days in DaysOfWeek | filter: {category: 'day' }">{{days.name}}
+                                  </md-optgroup>
+                                </md-select>
+                              </md-input-container>
+                            </div>
+                          </div>
+
+                          <div layout="row" style="margin-right: -30px;margin-top: -10px;margin-left: 2px;margin-bottom: 18px;">
+                            <md-input-container style="margin-left:30px;padding:4px;">
+                              <label>Class</label>
+                              <md-select ng-model="selectClass" md-selected-text="getSelectedClass()">
+                                <md-optgroup label="Class">
+                                  <md-option direction="down" ng-value="dropdownClass" ng-repeat="dropdownClass in dropdownClass">{{dropdownClass}}</md-option>
+                                </md-optgroup>
+                              </md-select>
+                            </md-input-container>
+                            <md-input-container style="margin-left:55px;padding:4px;">
+                              <label>Delivery Boy</label>
+                              <md-select ng-model="selectDeliveryBoy" md-selected-text="getSelectedDeliveryBoy()" style="margin-left: 11px;">
+                                <md-optgroup label="Selct a DeliveryBoy">
+                                  <md-option direction="down" ng-value="dropdownDeliveryBoy" ng-repeat="dropdownDeliveryBoy in dropdownDeliveryBoy">{{dropdownDeliveryBoy}}</md-option>
+                                </md-optgroup>
+                              </md-select>
+                            </md-input-container>
+
+                            <md-input-container style="margin-left:89px;padding:4px;">
+                              <label>Sale Person</label>
+                              <md-select ng-model="selectSaleperson" md-selected-text="getSelectedSaleperson()" style="margin-left: -32px;">
+                                <md-optgroup label="Select Sale Person">
+                                  <md-option direction="down" ng-value="dropdownSaleperson" ng-repeat="dropdownSaleperson in dropdownSaleperson">{{dropdownSaleperson}}</md-option>
+                                </md-optgroup>
+                              </md-select>
+                            </md-input-container>
+
+                          </div>
+                        </div>
+                      </md-whiteframe>
+                    </md-content>
+                  </md-tab>
+                </md-tabs>
+              </md-content>
+            </div>
+
+            <div>
+              <center>
+                <md-button class="md-raised md-primary " ng-click="insertCustomer(customerData)">Submit</md-button>
+              </center>
+            </div>
+
+          </md-tab>
+
+          <md-tab label="PROMOTIONS">
+            <md-content>
+              <div>
+                <h3> Enter an adress and press the button</h3>
+                  <md-input-container>
+                <!--<input type="text" placeholder="Enter address here" ng-model="address" />-->
+                  </md-input-container>
+                <md-button ng-click="addEventListener()">Get LatLong</md-button>
+                <div>
+                  <p>Latitude:
+                    <md-input-container>
+                      <!--<input ng-model="longi" type="text" id="latitude" readonly /><br><br>kk-->
+                      <input type="text" ng-model="latitude" />
+                    </md-input-container>
+                  </p>
+                  <p>Longitude:
+                    <!--<input type="text" id="longitude" readonly />-->
+                    <md-input-container>
+                      <input type="text" ng-model="longitude" />
+                    </md-input-container>
+                  </p>
+                </div>
+            </md-content>
+
+          </md-tab>
+          <md-tab label="ORDER DETAILS">
+            <md-content>
+
+
+            </md-content>
+          </md-tab>
+
+        </md-tabs>
+      </md-content>
+      </div>
+  </main>
+
+  <footer>
+    <md-toolbar class="md-scroll-shrink" style="
+    min-height: 0px;
+    height: 31px !important;
+    padding-bottom: 14px;">
+      <p align="center" style="
+    padding: 0px 44px 15px 0px;
+    padding-bottom: 0px;
+    position: relative;
+    bottom: 20px;
+">&copy; Copyright 2017</p>
+
+    </md-toolbar>
+  </footer>
+  </div>

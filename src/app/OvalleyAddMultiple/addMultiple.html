@@ -1,0 +1,101 @@
+<br><br><br>
+<center>
+    <div ng-repeat="mulContact in multiplecontact">
+        <!--<div>
+   Contact: <input type="number" ng-model="mulContact.contact"/>&nbsp;<br><br>
+   Street :<input type="text" ng-model="mulContact.street"/></div>&nbsp;
+    <button ng-show="$last" 
+   ng-click="addMultipleContact()">Add</button>
+    <button ng-show="$index!=0" ng-click="removeContact($index)">Remove</button><br><br>
+
+</div>-->
+        <!--<button ng-click="Save()">Submit</button>-->
+        <pre>contacts--{{ multiplecontact | json}}</pre>
+</center>
+
+
+
+<div ng-cloak="" class="tabsdemoDynamicHeight">
+    <md-content>
+        <md-tabs md-dynamic-height="" md-border-bottom="">
+
+            <md-tab label="Contact">
+                <md-content ng-repeat="mulContact in multiplecontact" style="margin-left:100px;padding:20px;" layout="row">
+                    <md-input-container class="md-block">
+                        <label>Contact</label>
+                        <input type="number" ng-required="true" ng-model="mulContact.contact" />&nbsp;
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-show="$last" ng-click="addMultipleContact()">Add</md-button>
+                    <md-button class="md-raised md-warn" ng-show="$index!=0" ng-click="removeContact($index)">Remove</md-button>
+                </md-content>
+                <div style="margin-left:100px;padding:10px;">
+                    <md-button class="md-raised md-primary" ng-click="SaveContact()">Submit</md-button>
+                </div>
+            </md-tab>
+
+
+
+            <md-tab label="Email">
+
+                <md-content ng-repeat="mulEmail in multipleEmails" style="margin-left:100px;padding:20px;" layout="row">
+                    <md-input-container class="md-block">
+                        <input type="email" placeholder="Email (required)*" ng-required="true" ng-model="mulEmail.email" />&nbsp;
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-show="$last" ng-click="addMultipleEmail()">Add</md-button>
+                    <md-button class="md-raised md-warn" ng-show="$index!=0" ng-click="removeEmail($index)">Remove</md-button>
+                </md-content>
+                <div style="margin-left:100px;padding:10px;">
+                    <md-button class="md-raised md-primary" ng-click="saveEmail()">Submit</md-button>
+                </div>
+
+            </md-tab>
+
+
+
+            <md-tab label="Address">
+                <md-content ng-repeat="mulAddresses in multipleAddress" style="margin-left:100px;padding:20px;">
+                    <h1>Address {{addressCount+1}}</h1>
+                <div layout="row">
+                    <md-input-container class="md-block">                        
+                        <input type="number" placeholder="Shop/Flat/Gala no." ng-model="mulAddresses.shopNo" />&nbsp;
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="Building/Shop Name" ng-model="mulAddresses.buildingName" />&nbsp;
+                    </md-input-container>
+                </div>
+                <div layout="row"> 
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="Street" ng-model="mulAddresses.Street" />&nbsp;
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="Zone" ng-model="mulAddresses.Area" />&nbsp;
+                    </md-input-container>
+                </div>
+                <div  layout="row">
+                    <md-input-container class="md-block">
+                        <input type="number" placeholder="Pincode" ng-model="mulAddresses.Pincode" />&nbsp;
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="City" ng-model="mulAddresses.City" />&nbsp;
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="State" ng-model="mulAddresses.State" />&nbsp;
+                    </md-input-container>
+                </div>
+
+
+                    <md-button class="md-raised md-primary" ng-show="$last" ng-click="addMultipleAddress()">Add</md-button>
+                    <md-button class="md-raised md-warn" ng-show="$index!=0" ng-click="removeAddress($index)">Remove</md-button>
+
+                </md-content>
+                <div style="margin-left:100px;padding:10px;">
+                    <md-button class="md-raised md-primary" ng-click="saveAddress()">Submit</md-button>
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

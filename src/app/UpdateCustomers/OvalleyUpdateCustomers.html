@@ -1,0 +1,196 @@
+<div layout="column" ng-cloak="" class="md-inline-form inputdemoBasicUsage">
+
+  <center>
+    <h1>Update Customers</h1>
+
+    <!--<md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding="">-->
+      <div class="md-content">
+
+
+        <div ng-cloak="" class="tabsdemoDynamicHeight">
+          
+          <md-content>
+            <md-tabs md-dynamic-height="" md-border-bottom="">
+
+              <md-tab label="Basic Details">
+                <md-card flex>
+                <md-content style="margin-left:100px;padding:20px;">
+                  <div layout="row">
+                  <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                    <label>First Name</label>
+                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                    <input ng-model="datai.fName" type="text">
+                  </md-input-container>
+
+                  <md-input-container class="md-icon-float md-block">
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Last Name</label>
+                    <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+                    <input ng-model="datai.lName" type="text">
+                  </md-input-container>
+                  </div>
+                  <div layout="row">
+                  <md-input-container float class="md-block">
+                    <input ng-model="datai.custType" type="text" placeholder="Customerr Type">
+                    <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+                  </md-input-container>
+
+                  <md-input-container class="md-block">
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                    <input ng-model="datai.shopType" type="text" placeholder="Shop Type">
+                  </md-input-container>
+                  </div>
+                </md-content>
+                 </md-card>
+              </md-tab>
+
+              <md-tab label="Contact">
+                <div layout="row">
+                <md-content style="margin-left:100px;padding:20px;">
+                  <md-input-container class="md-block">
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                    <input ng-model="datai.contact" type="text" placeholder="Phone Number">
+                  </md-input-container>
+                </md-content>
+                </div>
+              </md-tab>
+
+              <md-tab label="Email">
+                <div layout="row">
+                <md-content style="margin-left:100px;padding:20px;">
+                  <md-input-container class="md-block">
+                    <!-- Use floating placeholder instead of label -->
+                    <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+                    <input ng-model="datai.email" type="email" placeholder="Email (required)*" ng-required="true">
+                  </md-input-container>
+
+                </md-content>
+                </div>
+              </md-tab>
+
+              <md-tab label="Address">
+                
+                <md-content style="margin-left:100px;padding:20px;">
+                  <div layout="row" style="margin-left:30px;padding:5px;">
+                    <md-input-container class="md-block">                        
+                        <input type="number" placeholder="Shop/Flat/Gala no." ng-model="datai.shopNo" />&nbsp;
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <input type="text" placeholder="Building/Shop Name" ng-model="datai.buildingName" />&nbsp;
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                  <md-input-container class="md-block">
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                    <input ng-model="datai.street" type="text" placeholder="Street">
+                  </md-input-container>
+
+                  <md-input-container class="md-block">
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                    <input ng-model="datai.area" type="text" placeholder="Area">
+                  </md-input-container>
+                </div>
+                <div layout="row">
+                  <md-input-container float class="md-block">
+                    <input ng-model="datai.zone" type="text" placeholder="Pincode">
+                    <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+                  </md-input-container>
+
+                  <md-input-container class="md-block">
+                    <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                    <input ng-model="datai.city" type="text" placeholder="City">
+                  </md-input-container>
+                  <md-input-container class="md-block">
+                  <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+                  <input ng-model="datai.state" type="text" placeholder="State">
+                </md-input-container>
+                </div>
+                  <md-button class="md-primary" ng-click="updateCustomer(datai)">Submit</md-button>
+
+                </md-content>
+              </md-tab>
+
+            </md-tabs>
+          </md-content>
+         
+        </div>
+        <!--<md-content class="md-no-momentum">
+          <md-input-container class="md-icon-float md-block">-->
+        <!-- Use floating label instead of placeholder -->
+        <!--<label>First Name</label>
+            <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+            <input ng-model="datai.fName" type="text">
+          </md-input-container>-->
+
+        <!--<md-input-container class="md-icon-float md-block">-->
+        <!-- Use floating label instead of placeholder -->
+        <!--<label>Last Name</label>
+            <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+            <input ng-model="datai.lName" type="text">
+          </md-input-container>-->
+
+        <!--<md-input-container float class="md-block">
+            <input ng-model="datai.cust_address" type="text" placeholder="Address">
+            <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+          </md-input-container>-->
+
+        <!--<md-input-container float class="md-block">
+            <input ng-model="datai.zone" type="text" placeholder="Pincode">
+            <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+          </md-input-container>-->
+
+        <!--<md-input-container float class="md-block">
+            <input ng-model="datai.active" type="text" placeholder="Is Active">
+            <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+          </md-input-container>-->
+
+        <!--<md-input-container float class="md-block">
+            <input ng-model="datai.custType" type="text" placeholder="Customerr Type">
+            <md-icon md-svg-src="img/icons/ic_place_24px.svg" style="display:inline-block;"></md-icon>
+          </md-input-container>-->
+
+        <!--<md-input-container class="md-block">-->
+        <!-- Use floating placeholder instead of label -->
+        <!--<md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+            <input ng-model="datai.email" type="email" placeholder="Email (required)*" ng-required="true">
+          </md-input-container>-->
+
+
+        <!--<md-input-container class="md-block">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="datai.street" type="text" placeholder="Street">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="datai.state" type="text" placeholder="State">
+          </md-input-container>-->
+
+        <!--<md-input-container class="md-block">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="datai.shopType" type="text" placeholder="Shop Type">
+          </md-input-container>-->
+
+
+        <!--<md-input-container class="md-block">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="datai.city" type="text" placeholder="City">
+          </md-input-container>-->
+
+        <!--<md-input-container class="md-block">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="datai.deliveyBoy" type="text" placeholder="Delivery Boy">
+          </md-input-container>-->
+
+        <!--<md-input-container class="md-block">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+            <input ng-model="datai.contact" type="text" placeholder="Phone Number">
+          </md-input-container>-->
+        <!--<md-button class="md-primary" ng-click="updateCustomer(datai)">Submit</md-button>-->
+    <!--</md-content>-->
+    </div>
+    </md-content>
+</div>
+</center>

@@ -1,0 +1,515 @@
+@import url(//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+html {
+  font-family: 'Roboto Slab', serif;
+}
+
+[layout=row] {
+  flex-direction: row;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+md-toolbar.md-default-theme {
+  background-color: black;
+}
+
+section.jumbotron {
+  margin-bottom: 30px;
+  padding: 1px 30px;
+  background-color: #5aadbb;
+  text-align: center;
+
+  color: white;
+}
+
+section.jumbotron h1 {
+  font-size: 3em;
+}
+
+.techs {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.techs md-card {
+  width: 30%;
+}
+
+.techs md-card img.pull-right {
+  float: right;
+  width: 100px;
+}
+.buttoncolor
+{
+  background-color:cornflowerblue;
+  color:white;
+}
+.buttoncolor:hover
+{
+  background-color:blue ;
+  color:white;
+}
+
+
+
+
+/* Styles for pagination */
+
+.my-controller {
+  border: 1px solid #fcc;
+  padding: 5px;
+  margin: 3px;
+}
+.my-controller small {
+  color: #c99;
+}
+.other-controller {
+  border: 1px solid #ccf;
+  padding: 5px;
+  margin: 3px;
+}
+.other-controller small {
+  color: #99c;
+}
+.third-controller {
+  border: 1px solid #cfc;
+  padding: 5px;
+  margin: 3px;
+}
+.third-controller small {
+  color: #9c9;
+}
+
+/* for pagination */
+
+
+/*---for insert data */
+.inputdemoIcons .inputIconDemo {
+    min-height: 48px; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue; }
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+    color: red; }
+
+
+
+
+    /*--- for select all ----*/
+    .checkboxdemoSelectAll .demo-legend {
+  color: #3F51B5; }
+
+.checkboxdemoSelectAll .demo-fieldset {
+  border-style: solid;
+  border-width: 1px;
+  height: 100%; }
+
+.checkboxdemoSelectAll .demo-select-all-checkboxes {
+  padding-left: 30px; }
+
+
+a:link
+{
+  text-decoration: none;
+}
+a:hover
+{
+  text-decoration: none;
+}
+
+  /*-------------image style for customer management*/
+
+  .custUpdatetImg
+  {
+      /*width:40%;*/
+      height:15%;
+      
+      float:left;
+      padding-bottom:-10px;
+      margin: 0;
+  }
+   .custDeleteImg
+  {
+      /*width:40%;*/
+      height:16%;
+      
+      float:left;
+      padding-bottom:-10px;
+      margin: 0;
+  }
+  .custUpdatetImg:hover
+  {
+    background-color: lightblue;
+  }
+  .custDeleteImg:hover
+  {
+    background-color: lightcoral;
+  }
+
+  .ovalleylogo
+  {
+     height:16%;
+      
+      float:left;
+      padding-bottom:-10px;
+      margin: 0;
+  }
+
+
+/*_________________ For Table_____________ */
+table th:hover
+{
+  cursor: pointer;
+  color:blue;
+}
+table td:hover
+{
+  cursor: pointer;
+  color:blue;
+}
+.arrow-down:after,.arrow-up:after{
+ content: ' ';
+ position: relative;
+ left: 2px;
+ border: 8px solid transparent;
+}
+
+.arrow-down:after{
+ top: 10px;
+ border-top-color: black;
+}
+
+.arrow-up:after{
+ bottom: 15px;
+ border-bottom-color: black;
+}
+
+.arrow-down,.arrow-up{
+ padding-right: 10px;
+}
+
+
+/*__________ For Autocomplete __________*/
+.autocmlp
+{
+  /*block-size: 50px;*/
+  margin: 1% 70% -3% 10% ;
+  /*background-color: blue;*/
+}
+.autocomplete-custom-template li {
+  /*border-bottom: 1px solid #ccc;*/
+  height: auto;
+  /*width: 100px;*/
+  padding-top: 8px;
+  padding-bottom: 8px;
+  /*white-space: normal;*/
+}
+.autocomplete-custom-template li:last-child {
+  border-bottom-width: 0;
+}
+.autocomplete-custom-template .item-title,
+.autocomplete-custom-template .item-metadata {
+  display: block;
+  line-height: 2;
+}
+.autocomplete-custom-template .item-title md-icon {
+  height: 18px;
+  width: 18px;
+}
+
+
+.tabsdemoDynamicHeight .md-button
+{
+  margin-top: 6px;
+  margin-bottom: 66px;
+}
+
+.abc{
+  background-color: blue;
+  width: 10%;
+  block-size: 30px;
+}
+
+.Pdetails
+{
+  color:white;
+  background-color:teal;
+  border-radius: 40px;
+  padding: 0.01em;
+  block-size: 40px;
+  width: 74%;
+  -ms-text-size-adjust: 1px;
+  align:left;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+md-toolbar .footer
+{
+  background-color: red;
+}
+main {
+  overflow-y: auto;
+}
+
+.cent
+{
+  color:red;
+  
+}
+/*-----------Checkbox-----------*/
+md-checkbox
+{
+  background-color: white;
+}
+
+
+/*----------------- CSS for Side Navigation ----------*/
+.rightnav
+{
+    min-width: 100px !important;
+    width: 220px !important;
+    max-width: 300px !important;
+    height: 100%;
+    position: fixed;
+	
+	box-sizing: border-box;
+    z-index: 60;
+    bottom: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color:grey !important;
+    /*opacity: 0.9;*/
+	
+}
+
+.md-sidenav-opened 
+{
+   min-width: 200px !important;
+   width: 220px !important;
+   max-width: 300px !important;
+   border: 1px solid #000000;
+   background-color: grey;
+}
+
+.md-sidenav-left
+{
+   min-width: 55px !important;
+   width: 55px !important;
+   max-width: 700px !important;
+   overflow-x:hidden;
+   background-color:black;
+}
+.md-toolbar-tools
+{
+  background-color:black;
+}
+/*---------End For Side Navigation ----------*/
+
+
+
+/*
+.sandwich {
+    display: block;
+    position: relative;
+    width: 60px;
+    height: 50px;
+    top: 120px;
+    left: 150px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+.sandwich div,
+.sandwich div:before,
+.sandwich div:after {
+    width: 100%;
+    height: 10px;
+    background: #808080;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease; 
+    background-color:green;
+}
+
+.sandwich div:before, div:after {
+    content: '';
+    position: absolute;
+}
+
+.sandwich div:before {
+    top: -20px;
+}
+
+.sandwich div:after {
+    top: 20px;
+    background-color:green;
+}*/
+
+
+/*-------------------For Icons*/
+/*.menuBardemoBasicUsage .page-container {
+  padding: 32px; }
+
+.menuBardemoBasicUsage .page {
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 680px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25); }
+
+.menuBardemoBasicUsage .page h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 0;
+  font-weight: normal; }
+
+.menuBardemoBasicUsage .page p {
+  line-height: 1.6rem; }*/
+
+/*-------For Person ->My profile and Logout-----*/
+/*.md-button.md-focused {
+  background-color: black;
+}*/
+
+/*---------color for body----*/
+body{
+  background-color: #eedd82;
+}
+md-tabs
+{
+  background-color: #eedd82;
+}
+md-button
+{
+  background-color: red;
+}
+.tabsdemoDynamicHeight
+{
+  background-color: #eedd82;
+}
+md-content
+{
+  background-color: #eedd82;
+}
+
+  .md-open-menu-container
+  {
+    background-color: red;
+    margin-left:50px;
+  }
+
+  .md-whiteframe-23dp
+  {
+    /*background-colored;*/
+    border-radius: 25px;
+    background-color: white;
+    /*block-size: 500px;
+    width:700px;*/
+  }
+md-option
+{
+  background-color: white;
+}
+md-optgroup
+{
+  background-color: red;
+}
+md-select
+{
+  /*border-radius: 25px;*/
+}
+
+
+
+
+.whiteframedemoBasicClassUsage {
+  /* For breakpoint `-xs` */
+  /* For breakpoint `-sm` */
+  /* For breakpoint `-md` */
+  /* For breakpoint `-gt-md` */ }
+  .whiteframedemoBasicClassUsage md-whiteframe {
+    background: #fff;
+    margin: 30px;
+    height: 100px; }
+  @media (max-width: 1000px) {
+    .whiteframedemoBasicClassUsage md-whiteframe {
+      margin: 7px;
+      height: 50px;
+      background-color: #c8e4fa; }
+    .whiteframedemoBasicClassUsage md-whiteframe > span {
+      font-size: 0.4em; } }
+  @media (min-width: 600px) and (max-width: 959px) {
+    .whiteframedemoBasicClassUsage md-whiteframe {
+      margin: 20px;
+      height: 75px; }
+    .whiteframedemoBasicClassUsage md-whiteframe > span {
+      font-size: 0.6em; } }
+  @media (min-width: 960px) and (max-width: 1279px) {
+    .whiteframedemoBasicClassUsage md-whiteframe {
+      margin: 20px;
+      height: 90px;
+      background-color: #fcddde; }
+    .whiteframedemoBasicClassUsage md-whiteframe > span {
+      font-size: 0.9em; } }
+  @media (min-width: 1280px) {
+    .whiteframedemoBasicClassUsage md-whiteframe {
+      margin: 25px;
+      height: 100px;
+      background-color: #F2FCE2; }
+    .whiteframedemoBasicClassUsage md-whiteframe > span {
+      font-size: 1.0em; } }
+
+      .hidescroll
+      {
+        overflow-y: hidden;
+      }
+
+      .md-primary
+      {
+        background-color: blue;
+      }

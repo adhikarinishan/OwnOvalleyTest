@@ -1,0 +1,57 @@
+<md-dialog aria-label="Mango (Fruit)" style="border-radius:25px;">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools" style="background-color:#006400;">
+        <h2>Change Password</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+         
+          <ng-md-icon icon="clear" style="fill:white" size="30px"></ng-md-icon> 
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:1000px;max-height:810px;width:500px;height:362px;">
+     
+          <md-content class="md-padding">
+           
+            <div align="center" layout="column">
+                <div layout="row">
+                    <md-input-container style=" margin-left: 130px;">
+                        <label>Username</label>
+                        <input type="text"></input>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container style=" margin-left: 130px;">
+                        <label>Old Password</label>
+                        <input type="password"></input>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                    <md-input-container style=" margin-left: 130px;">
+                        <label>New Password</label>
+                        <input type="password"></input>
+                    </md-input-container>
+                </div>
+                <div layout="row">
+                     <md-button style=" margin-left: 170px;" class="md-raised md-primary">Submit</md-button>
+                </div>
+          </div>
+          </md-content>
+    </md-dialog-content>
+
+    <!--<md-dialog-actions layout="row">-->
+      <!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+        More on Wikipedia
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="answer('not useful')" >
+        Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+        Useful
+      </md-button>-->
+      <!--<md-button class="md-raised md-primary">Submit</md-button>
+    </md-dialog-actions>-->
+  </form>
+</md-dialog>

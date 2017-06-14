@@ -1,0 +1,224 @@
+<head>
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+    />
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="bootstrap@3.1.1" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <script src="dirPagination.js"></script>
+</head>
+
+<div ng-controller="ovalleyController as ctrl" style="background-color:#F0E68C;">
+
+
+
+    
+
+
+
+
+
+
+
+    <header>
+    <md-toolbar class="md-whiteframe-z2">
+      <div style="text-align: center;">
+        <center>
+          <h5>OVALLEY</h5>
+        </center>
+      </div>
+    </md-toolbar>
+  </header>
+  <main flex>
+    <center>
+        <h1>Search Customers</h1><br/></center>
+    <div class="container">
+        <div>
+            <md-input-container>
+                <label>Search From Records</label>
+                <input type="text" ng-model="search.$" data-ng-keyup="SearchFromJsonData()" /><br/><br/>
+            </md-input-container>
+        </div>
+        <div class="md-padding" ng-cloak layout="column">
+            <div layout="row">
+                <md-input-container style="margin-right: 10px;">
+                    <select ng-options="data.type as data.Contact for data in terms" ng-model="x">Select
+            </select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Search By Term </label>
+                    <input type="text" ng-model="search[x]" />
+                </md-input-container>
+                <div>
+                    <a class="resetb" ng-click="resetall()">X</a>
+                    <!--<md-button class="md-raised md-primary" ng-click="addCustomer()"></md-button>-->
+                    <center><ng-md-icon ng-click="addCustomer()" icon="person_add" style="fill:green" size="40"><md-tooltip>Add New Customer</md-tooltip></ng-md-icon></center>
+                    <!--<md-button class="md-raised md-primary" ng-click="addMultiple(list)">Add Multiple</md-button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!-- to select specific columns-->
+        <button ng-model="showColumnTabv" ng-click="showColumnTab();">Select Columns</button>
+        <div ng-show="showColumnTabv" style="background-color: #F0E68C;">
+            <div ng-model="selectAllColumns">
+                <md-checkbox ng-model="multicol.colCust1" ng-change="multipleColSelect()">Customer ID</md-checkbox>
+                <md-checkbox ng-model="multicol.colCust2" ng-change="multipleColSelect()">Customer Name</md-checkbox>
+                <md-checkbox ng-model="multicol.colCust3" ng-change="multipleColSelect()">Customer Type</md-checkbox>
+                <md-checkbox ng-model="multicol.colCust4" ng-change="multipleColSelect()">Shop Type</md-checkbox>
+                <md-checkbox ng-model="multicol.colCust5" ng-change="multipleColSelect()">Delivery Boy</md-checkbox>
+            </div>
+        </div>
+    </div>
+    <div class="container table-responsive">
+        <div class="row">
+            <div class="col-lg-8">
+
+                <table md-table class="table">
+                    <div layout="row">
+                        <div class="col-xs-4">
+                            <label for="search">items per page:</label>
+                            <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                        </div>
+                    </div>
+                    <div>
+                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="app/dirPagination.tpl.html"></dir-pagination-controls>
+                    </div>
+                    <fieldset class="demo-fieldset">
+                        <tr>
+                            <th>
+                                <md-checkbox ng-model="isAllSelected" ng-change="SelectAll()"></md-checkbox>
+                            </th>
+                            <md-input-container>
+                                <label>Customer ID</label>
+                                <input type="text" ng-model="search.cust_id" />
+                            </md-input-container>
+                            <th ng-show="ShowcolCust1" ng-click='sortColumn("cust_id")' ng-class='sortClass("cust_id")'>
+                                 Customer ID                               
+                            </th>
+                            <md-input-container>
+                                <label>Customer Name</label>
+                                <input type="text" ng-model="search.fName" />
+                            </md-input-container>
+                            <th ng-show="ShowcolCust2" ng-click='sortColumn("fName")' ng-class='sortClass("fName")'>                               
+                                    Customer Name
+                            </th>
+                            <!--<th ng-click='sortColumn("cust_address")' ng-class='sortClass("cust_address")' ng-show="multiplecolselect">
+                                Address
+                            </th>-->
+                            <md-input-container>
+                                <label>Zipcode</label>
+                                <input type="text" ng-model="search.zone" />
+                            </md-input-container>
+                            <th ng-show="multiplecolselect" ng-click='sortColumn("zone")' ng-class='sortClass("zone")'>
+                                Zipcode
+                            </th>
+                            <!--<th ng-show="multiplecolselect">
+                                Active
+                            </th>-->
+                            <th ng-show="ShowcolCust3" ng-click='sortColumn("custType")' ng-class='sortClass("custType")'>
+                               Customer Type
+                            </th>
+                            <th ng-show="multiplecolselect" ng-click='sortColumn("email")' ng-class='sortClass("email")'>                                
+                                    Email
+                            </th>
+                            <th ng-show="multiplecolselect" ng-click='sortColumn("state")' ng-class='sortClass("state")'>
+                                State
+                            </th>
+                            <th ng-show="ShowcolCust4" ng-click='sortColumn("shopType")' ng-class='sortClass("shopType")'>
+                                Shop Type
+                            </th>
+                            <th ng-show="multiplecolselect" ng-click='sortColumn("city")' ng-class='sortClass("city")'>
+                                City
+                            </th>
+                            <!--<th ng-show="ShowcolCust5" ng-click='sortColumn("deliveyBoy")' ng-class='sortClass("deliveyBoy")'>
+                                Delivery boy
+                            </th>-->
+                            <md-input-container>
+                                <label>Contact</label>
+                                <input type="text" ng-model="search.contact" />
+                            </md-input-container>
+                            <th ng-show="multiplecolselect" ng-click='sortColumn("contact")' ng-class='sortClass("contact")'>
+                                Contact
+                            </th>
+                            <!--<th ng-show="multiplecolselect" ng-click='sortColumn("street")' ng-class='sortClass("street")'>
+                                Street
+                            </th>-->
+                            <th>
+                                 Actions
+                            </th>
+                        </tr>
+                        <br/>
+                        <div>
+                            <div>
+                                <tr dir-paginate="data in list | filter:search|orderBy:column:reverse|itemsPerPage: pageSize" current-page="currentPage">
+                                    <td>
+                                        <md-checkbox ng-model="data.selected" ng-change="selecteMultiple(data)" name="item"></md-checkbox>
+                                    </td>
+                                    <td ng-show="ShowcolCust1">
+                                        {{data.cust_id}}
+                                    </td>
+                                    <td ng-show="ShowcolCust2">
+                                        {{data.fName}} {{data.lName}}
+                                    </td>
+                                    <!--<td ng-show="multiplecolselect">{{data.cust_address}}</td>-->
+                                    <td ng-show="multiplecolselect">{{data.zone}}</td>
+                                    <!--<td ng-show="multiplecolselect">{{data.active}}</td>-->
+                                    <td ng-show="ShowcolCust3">{{data.custType}}</td>
+
+                                    <!--<td ng-show="multiplecolselect" ng-click="displayEmail(data)">Display</td>-->
+                                        <!--{{data.email}}</td>-->
+                                    <td ng-show="multiplecolselect">{{data.state}}</td>
+                                    <td ng-show="ShowcolCust4">{{data.shopType}}</td>
+                                    <td ng-show="multiplecolselect">{{data.city}}</td>
+                                    <!--<td ng-show="ShowcolCust5">{{data.deliveyBoy}}</td>-->
+                                    <td ng-show="multiplecolselect">{{data.contact}}</td>
+                                    <!--<td ng-show="multiplecolselect">{{data.street}}</td>-->
+                                    <td>
+                                        <img class="custUpdatetImg" ng-click="updateD(data)" data-toggle="tooltip" title="Update" style="margin:5px 1px !important; width:20px !important; cursor:pointer;"
+                                            ng-src="assets/images/OvalleyImages/CustomerManagementImage/Update_image.png">
+                                        <img class="custDeleteImg" ng-click="deleteCustomer(data)" data-toggle="tooltip" title="Delete" style="margin:5px 3px !important;width:21px !important; cursor:pointer;"
+                                            ng-src="assets/images/OvalleyImages/CustomerManagementImage/DeleteImage.png">
+
+                                             <md-button class="md-raised md-primary" ng-click="addMultiple(data)">Add Multiple</md-button>
+
+                                    </td>
+                                </tr>
+                            </div>
+                            <div ng-show="hide">
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </table>
+                <div class="form-group">
+                    <md-button class="md-raised md-primary" ng-show="test" ng-click="deleteMultipleCustomers('selectedata')">Delete</md-button>
+                    <md-button class="md-raised md-primary" ng-show="test" ng-click="multiselect('selectedata')">Update</md-button>
+                    <input ng-hide="!data.length" type="button" class="btn btn-danger pull-right" ng-click="remove()" value="Remove" />
+                </div>
+                <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="app/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+  </main>
+
+  
+<!--</div>-->
+<footer>
+    <md-toolbar class="md-scroll-shrink" style="
+    min-height: 0px;
+    height: 31px !important;
+    padding-bottom: 14px;">
+      <!--<div style="text-align: center;">-->
+      <!--<div layout="row" layout-align="center center" flex>-->
+      <p align="center" style="
+    padding: 0px 30px 15px 0px;
+    padding-bottom: 0px;
+    position: relative;
+    bottom: 0px;
+">&copy; Copyright 2017</p>
+      <!--</div>-->
+    </md-toolbar>
+  </footer>
+</div>
